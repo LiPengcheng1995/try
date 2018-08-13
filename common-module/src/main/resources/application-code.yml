@@ -1,0 +1,15 @@
+# 常用、通用错误码归纳在这里
+app:
+  config:
+    ResultCodePool:
+      commonPool:
+        - code: 201
+          message: common-code-201
+        - code: 202
+          message: common-code-202
+        - code: 203
+          message: common-code-203
+        - code: 204
+          message: common-code-204
+        - code: 205
+          message: common-code-205

@@ -1,0 +1,7 @@
+# 向前端展示的描述文档
+app:
+  description:
+
+# swagger的一些属性配置
+swagger:
+  pathRegex:

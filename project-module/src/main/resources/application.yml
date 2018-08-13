@@ -1,0 +1,22 @@
+spring:
+  profiles:
+    active: @profiles.active@,@code.pool.config@,@swagger.config@
+#  config:
+#    location: "F:\\heheda"
+
+debug: true
+
+server:
+  port: 80
+
+
+# 和jsf有关的服务配置在这里，方便测试预发线上的不同环境配置和按照项目来修改
+jsf:
+  jd:
+    service:
+      a:
+        alias: aalias
+        timeOut: 5000
+      b:
+        alias: balias
+        timeOut: 5000

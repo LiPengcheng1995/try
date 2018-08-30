@@ -1,28 +1,2 @@
-
-# 项目特有的错误码归纳在这里
 app:
   config:
-    ResultCodePool:
-      projectPool:
-        - code: 301
-          message: project-code-301
-        - code: 302
-          message: project-code-302
-        - code: 303
-          message: project-code-303
-        - code: 304
-          message: project-code-304
-        - code: 305
-          message: project-code-305
-# 引入的组件的错误码映射表配置在这里
-    serviceACodeConfig:
-      ServiceACodePoolMap:
-        1001: 201
-        1002: 202
-        1003: 304
-    serviceBCodeConfig:
-      ServiceBCodePoolMap:
-        1001: 301
-        1002: 302
-        1003: 305
-        1004: 203

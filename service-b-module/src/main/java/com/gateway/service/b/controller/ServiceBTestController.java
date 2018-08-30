@@ -19,8 +19,8 @@ public class ServiceBTestController {
     @Resource
     private ServiceBConsumer serviceAConsumer;
 
-    @RequestMapping(value = "/test",method = RequestMethod.GET)
-    public String test(){
-        return "accept: "+ serviceAConsumer.doServiceB();
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public String test() {
+        return "accept: " + serviceAConsumer.doServiceB();
     }
 }

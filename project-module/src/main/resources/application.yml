@@ -1,8 +1,10 @@
 spring:
   profiles:
-    active: @profiles.active@,@code.pool.config@,@swagger.config@
-#  config:
-#    location: "F:\\heheda"
+    include:
+      - code
+      - swagger
+    active: development
+
 
 debug: true
 

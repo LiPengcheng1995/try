@@ -12,7 +12,8 @@ import org.springframework.context.annotation.ImportResource;
 @Configuration
 @ComponentScan({
         "com.gateway.service.a.controller",
-        "com.gateway.service.a.service"
+        "com.gateway.service.a.service",
+        "com.gateway.service.a.config"
 })
 @ImportResource("classpath:spring-config-jsf-service-a.xml")
 public class AConfig {

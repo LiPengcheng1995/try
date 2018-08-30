@@ -5,7 +5,6 @@
 
 package com.gateway.service.a.controller;
 
-import com.gateway.common.code.CodePool;
 import com.gateway.service.a.jsfBack.ServiceAConsumer;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,8 +19,9 @@ public class ServiceATestController {
     @Resource
     private ServiceAConsumer serviceAConsumer;
 
-    @RequestMapping(value = "/test",method = RequestMethod.GET)
-    public String test(){
-        return "accept: "+ serviceAConsumer.doServiceA();
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public String test() {
+//        YamlPropertiesFactoryBean
+        return "accept: " + serviceAConsumer.doServiceA();
     }
 }

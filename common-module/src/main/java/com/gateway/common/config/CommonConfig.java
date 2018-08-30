@@ -5,12 +5,8 @@
 
 package com.gateway.common.config;
 
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan({
-        "com.gateway.common.code"
-})
 public class CommonConfig {
 }

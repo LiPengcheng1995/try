@@ -1,0 +1,7 @@
+app:
+  config:
+    resultCodes:
+      serviceBCodes:
+        401:
+          - code: 202
+          - message: service-B-message-202

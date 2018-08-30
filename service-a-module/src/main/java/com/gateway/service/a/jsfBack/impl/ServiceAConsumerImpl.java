@@ -13,7 +13,7 @@ public class ServiceAConsumerImpl implements ServiceAConsumer {
 
     private String timeOut;
 
-    public ServiceAConsumerImpl(String alias,String timeOut) {
+    public ServiceAConsumerImpl(String alias, String timeOut) {
         this.alias = alias;
         this.timeOut = timeOut;
     }

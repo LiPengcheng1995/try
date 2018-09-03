@@ -2,8 +2,6 @@ package com.gateway.project.domain;
 
 import org.apache.ibatis.jdbc.SQL;
 
-import java.util.List;
-
 /**
  * @author: lipengcheng3
  * @create: 2018-09-03 16:50
@@ -15,6 +13,15 @@ public class User {
     private String name;
 
     private int age;
+
+    public static String getUsersByAgeRange(int minAge, boolean minAgeClosed, int maxAge, boolean maxAgeClosed) {
+        String tmpMin = minAgeClosed ? ">=" : ">";
+        String tmpMax = maxAgeClosed ? "<=" : "<";
+
+        SQL sql = new SQL().SELECT("*").FROM("user").WHERE("age" + tmpMin + minAge, "age" + tmpMax + maxAge);
+
+        return sql.toString();
+    }
 
     public int getId() {
         return id;
@@ -38,14 +45,5 @@ public class User {
 
     public void setAge(int age) {
         this.age = age;
-    }
-
-    public static String getUsersByAgeRange(int minAge,boolean minAgeClosed,int maxAge,boolean maxAgeClosed){
-        String tmpMin = minAgeClosed?">=":">";
-        String tmpMax = maxAgeClosed?"<=":"<";
-
-        SQL sql = new SQL().SELECT("*").FROM("user").WHERE("age"+tmpMin+minAge,"age"+tmpMax+maxAge);
-
-        return sql.toString();
     }
 }

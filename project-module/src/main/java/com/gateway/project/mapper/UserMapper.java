@@ -22,9 +22,9 @@ public interface UserMapper {
     List<User> getUsersByName(String userName);
 
     @Select("select * from user where age between #{minAge} and #{maxAge}")
-    List<User> getUsersByAgeRangeClosed(int minAge,int maxAge);
+    List<User> getUsersByAgeRangeClosed(int minAge, int maxAge);
 
-    @SelectProvider(type=User.class,method = "getUsersByAgeRange")
-    List<User> getUsersByAgeRange(int minAge,boolean minAgeClosed,int maxAge,boolean maxAgeClosed);
+    @SelectProvider(type = User.class, method = "getUsersByAgeRange")
+    List<User> getUsersByAgeRange(int minAge, boolean minAgeClosed, int maxAge, boolean maxAgeClosed);
 
 }

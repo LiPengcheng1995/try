@@ -1,12 +1,11 @@
 /**
  * @author: lipengcheng3
- * @create: 2018-08-09 20:57
+ * @create: 2018-08-10 16:07
  **/
 
-package com.gateway.project.controller;
+package com.gateway.a.controller;
 
-import com.gateway.a.config.ServiceACodes;
-import com.gateway.b.config.ServiceBCodes;
+import com.gateway.a.jsfBack.ServiceAConsumer;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,17 +13,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.annotation.Resource;
 
 @Controller
-@RequestMapping(value = "/projectTestController")
-public class ProjectTestController {
+@RequestMapping(value = "/serviceATestController")
+public class ServiceATestController {
 
     @Resource
-    private ServiceACodes serviceACodes;
-
-    @Resource
-    private ServiceBCodes serviceBCodes;
+    private ServiceAConsumer serviceAConsumer;
 
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     public String test() {
-        return "accept";
+//        YamlPropertiesFactoryBean
+        return "accept: " + serviceAConsumer.doServiceA();
     }
 }

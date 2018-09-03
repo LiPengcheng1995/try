@@ -3,7 +3,7 @@
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="ServiceBConsumer" class="com.gateway.service.b.jsfBack.impl.ServiceBConsumerImpl">
+    <bean id="ServiceBConsumer" class="com.gateway.b.jsfBack.impl.ServiceBConsumerImpl">
         <constructor-arg name="alias" value="${jsf.jd.service.b.alias}"/>
         <constructor-arg name="timeOut" value="${jsf.jd.service.b.timeOut}"/>
     </bean>

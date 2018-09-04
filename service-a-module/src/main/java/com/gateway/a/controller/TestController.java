@@ -3,9 +3,9 @@
  * @create: 2018-08-10 16:07
  **/
 
-package com.gateway.b.controller;
+package com.gateway.a.controller;
 
-import com.gateway.b.jsfBack.ServiceBConsumer;
+import com.gateway.a.jsfBack.ServiceAConsumer;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.stereotype.Controller;
@@ -15,16 +15,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.annotation.Resource;
 
 @Controller
-@Api(value = "/api/serviceBTestController",description = "B组件coltroller",tags = "serviceBController")
-@RequestMapping(value = "/api/serviceBTestController")
-public class ServiceBTestController {
+@Api(value = "/api/serviceA/testController",description = "A组件coltroller",tags = "serviceAController")
+@RequestMapping(value = "/api/serviceA/testController")
+public class TestController {
 
     @Resource
-    private ServiceBConsumer serviceAConsumer;
+    private ServiceAConsumer serviceAConsumer;
 
     @ApiOperation("测试接口")
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     public String test() {
-        return "accept: " + serviceAConsumer.doServiceB();
+        return "accept: " + serviceAConsumer.doServiceA();
     }
 }

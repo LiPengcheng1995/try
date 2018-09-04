@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 
 @Controller
-@Api(value = "/api/projectTestController",description = "项目coltroller",tags = "projectController")
-@RequestMapping(value = "/api/projectTestController")
+@Api(value = "/api/project/testController",description = "项目coltroller",tags = "projectController")
+@RequestMapping(value = "/api/project/testController")
 @ResponseBody
-public class ProjectTestController {
+public class TestController {
 
     @Resource
     private ServiceACodes serviceACodes;

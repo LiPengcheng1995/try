@@ -26,7 +26,7 @@ public class Swagger2Configuration {
     @Value("${app.description:description}")
     private String appDescription;
 
-    @Value("${app.domain:www.jd.com}")
+    @Value("${app.domain:lipengcheng.men}")
     private String appDomain;
 
     @Value("${swagger.pathRegex:/.*}")

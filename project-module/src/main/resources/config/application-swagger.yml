@@ -1,7 +1,10 @@
 # 向前端展示的描述文档
 app:
-  description:
+  name: gateway-try
+  title: 网关组件化尝试项目
+  description: 这个项目是个人搭建的，用来尝试自己抽离网关组件的项目，同时也为了方便自己搭建尝试一些技术
+  domain: lipengcheng.men
 
 # swagger的一些属性配置
 swagger:
-  pathRegex:
+  pathRegex: /api/**

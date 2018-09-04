@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 /**
  * @author: lipengcheng3
@@ -35,4 +36,15 @@ public class UserController {
         response.setData(userMapper.getUserById(id));
         return response;
     }
+
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public Response<List<User>> getAllUsers() {
+        Response<List<User>> response = new Response<>();
+        response.setCode(10000);
+        response.setMessage("SUCCESS");
+        response.setData(userMapper.getAllUsers());
+        return response;
+    }
+
+
 }

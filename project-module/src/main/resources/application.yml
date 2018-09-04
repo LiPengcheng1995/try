@@ -5,9 +5,15 @@ spring:
       - swagger
     active: development
   datasource:
-    url: jdbc:mysql://10.182.34.185:3306/test_database?useUnicode=true&characterEncoding=utf-8&useSSL=false
-    username: root
-    password: 12345aA)
+    personnel:
+      url: jdbc:mysql://10.182.34.185:3306/test_database?useUnicode=true&characterEncoding=utf-8&useSSL=false
+      username: root
+      password: 12345aA)
+    vender:
+      url: jdbc:mysql://10.182.10.136:3306/mall?useUnicode=true&characterEncoding=utf-8&useSSL=false
+      username: root
+      password: 12345aA)
+
 
 
 debug: true

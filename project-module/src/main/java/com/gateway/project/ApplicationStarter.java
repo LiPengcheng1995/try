@@ -10,13 +10,16 @@ import com.gateway.a.AConfig;
 import com.gateway.b.BConfig;
 import com.gateway.common.CommonConfig;
 import com.gateway.common.web.CommonWebConfiguration;
-import org.mybatis.spring.annotation.MapperScan;
+import org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
 
-@EnableAutoConfiguration
+@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class,
+        DataSourceTransactionManagerAutoConfiguration.class, MybatisAutoConfiguration.class})
 @ComponentScan({
         "com.gateway.project.controller",
         "com.gateway.project.config"
@@ -28,7 +31,7 @@ import org.springframework.context.annotation.Import;
         AConfig.class,
         BConfig.class
 })
-@MapperScan("com.gateway.project.mapper")
+
 public class ApplicationStarter {
     public static void main(String[] args) throws Exception {
         SpringApplication.run(ApplicationStarter.class, args);

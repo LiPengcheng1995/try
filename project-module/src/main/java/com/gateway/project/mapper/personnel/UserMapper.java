@@ -1,4 +1,4 @@
-package com.gateway.project.mapper;
+package com.gateway.project.mapper.personnel;
 
 import com.gateway.project.domain.User;
 import org.apache.ibatis.annotations.Mapper;

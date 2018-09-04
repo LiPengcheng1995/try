@@ -7,4 +7,4 @@ app:
 
 # swagger的一些属性配置
 swagger:
-  pathRegex: /api/**
+  pathRegex: /api/.*

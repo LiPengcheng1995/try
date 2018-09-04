@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 
-@Controller
+@Controller(value = "projectTestController")
 @Api(value = "/api/project/testController",description = "项目coltroller",tags = "projectController")
 @RequestMapping(value = "/api/project/testController")
 @ResponseBody

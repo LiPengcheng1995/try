@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.annotation.Resource;
 
-@Controller
+@Controller(value = "serviceATestController")
 @Api(value = "/api/serviceA/testController",description = "A组件coltroller",tags = "serviceAController")
 @RequestMapping(value = "/api/serviceA/testController")
 public class TestController {

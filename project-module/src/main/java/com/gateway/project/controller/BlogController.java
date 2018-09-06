@@ -1,8 +1,8 @@
 package com.gateway.project.controller;
 
 import com.gateway.common.web.domain.Response;
-import com.gateway.project.domain.Blog;
-import com.gateway.project.repository.BlogRepository;
+import com.gateway.project.domain.personnel.Blog;
+import com.gateway.project.repository.personnel.BlogRepository;
 import io.swagger.annotations.Api;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;

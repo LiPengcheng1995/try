@@ -12,11 +12,11 @@ import com.gateway.common.CommonConfig;
 import com.gateway.common.web.CommonWebConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@EnableAutoConfiguration
+@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
 @ComponentScan({
         "com.gateway.project.controller",
         "com.gateway.project.config"
@@ -28,9 +28,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
         AConfig.class,
         BConfig.class
 })
-@EnableJpaRepositories(basePackages = "com.gateway.project.repository")
 public class ApplicationStarter {
     public static void main(String[] args) throws Exception {
         SpringApplication.run(ApplicationStarter.class, args);
+//        JpaBaseConfiguration
+
     }
 }

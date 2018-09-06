@@ -1,4 +1,4 @@
-package com.gateway.project.domain;
+package com.gateway.project.domain.personnel;
 
 import javax.persistence.*;
 

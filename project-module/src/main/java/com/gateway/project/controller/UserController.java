@@ -2,8 +2,8 @@ package com.gateway.project.controller;
 
 import com.gateway.common.web.domain.Paging;
 import com.gateway.common.web.domain.Response;
-import com.gateway.project.domain.User;
-import com.gateway.project.repository.UserRepository;
+import com.gateway.project.domain.personnel.User;
+import com.gateway.project.repository.personnel.UserRepository;
 import io.swagger.annotations.Api;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

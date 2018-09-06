@@ -1,6 +1,6 @@
-package com.gateway.project.repository;
+package com.gateway.project.repository.personnel;
 
-import com.gateway.project.domain.User;
+import com.gateway.project.domain.personnel.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

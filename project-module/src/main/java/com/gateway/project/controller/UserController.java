@@ -62,9 +62,16 @@ public class UserController {
         Response<Page<User>> response = new Response<>();
         response.setCode(10000);
         response.setMessage("SUCCESS");
-        response.setData(userRepository.findAll(new PageRequest(paging.getPage(),paging.getPageSize())));
+        response.setData(userRepository.findAll(new PageRequest(paging.getPage(), paging.getPageSize())));
         return response;
     }
 
-
+    @RequestMapping(value = "/name/{name}", method = RequestMethod.GET)
+    public Response<List<User>> getUsersByNameOrOrderByIdAsc(@PathVariable("name") String name) {
+        Response<List<User>> response = new Response<>();
+        response.setCode(10000);
+        response.setMessage("SUCCESS");
+        response.setData(userRepository.getByNameOrderByIdAsc(name));
+        return response;
+    }
 }

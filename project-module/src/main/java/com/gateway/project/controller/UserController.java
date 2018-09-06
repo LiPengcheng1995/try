@@ -2,7 +2,7 @@ package com.gateway.project.controller;
 
 import com.gateway.common.web.domain.Response;
 import com.gateway.project.domain.User;
-import com.gateway.project.mapper.UserMapper;
+import com.gateway.project.repository.UserRepository;
 import io.swagger.annotations.Api;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,14 +26,14 @@ import java.util.List;
 public class UserController {
 
     @Resource
-    private UserMapper userMapper;
+    private UserRepository userRepository;
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Response<User> getUserById(@PathVariable("id") @NotNull Integer id) {
         Response<User> response = new Response<>();
         response.setCode(10000);
         response.setMessage("SUCCESS");
-        response.setData(userMapper.getUserById(id));
+        response.setData(userRepository.findOne(id));
         return response;
     }
 
@@ -42,7 +42,7 @@ public class UserController {
         Response<List<User>> response = new Response<>();
         response.setCode(10000);
         response.setMessage("SUCCESS");
-        response.setData(userMapper.getAllUsers());
+        response.setData(userRepository.findAll());
         return response;
     }
 

@@ -1,33 +1,29 @@
 package com.gateway.project.domain;
 
-import org.apache.ibatis.jdbc.SQL;
+
+import javax.persistence.*;
 
 /**
  * @author: lipengcheng3
  * @create: 2018-09-03 16:50
  * @description:
  **/
+@Entity
+@Table(name = "user")
 public class User {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     private String name;
 
-    private int age;
+    private Integer age;
 
-    public static String getUsersByAgeRange(int minAge, boolean minAgeClosed, int maxAge, boolean maxAgeClosed) {
-        String tmpMin = minAgeClosed ? ">=" : ">";
-        String tmpMax = maxAgeClosed ? "<=" : "<";
-
-        SQL sql = new SQL().SELECT("*").FROM("user").WHERE("age" + tmpMin + minAge, "age" + tmpMax + maxAge);
-
-        return sql.toString();
-    }
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -39,11 +35,11 @@ public class User {
         this.name = name;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 }

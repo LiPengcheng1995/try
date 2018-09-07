@@ -43,12 +43,13 @@ public class PersonnelDatabaseConfig {
 
 
     @Bean(name = "entityManagerPersonnel")
-    public EntityManager entityManager() {
-        return this.entityManagerFactoryPersonnel().getObject().createEntityManager();
+    public EntityManager entityManager(@Qualifier("entityManagerFactoryPersonnel") LocalContainerEntityManagerFactoryBean entityManagerFactoryPersonnel) {
+        return entityManagerFactoryPersonnel.getObject().createEntityManager();
     }
 
     @Bean(name = "entityManagerFactoryPersonnel")
     @Primary
+    @Qualifier("entityManagerFactoryPersonnel")
     public LocalContainerEntityManagerFactoryBean entityManagerFactoryPersonnel() {
         return entityManagerFactoryBuilder
                 .dataSource(personnelDataSource)

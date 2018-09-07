@@ -43,10 +43,11 @@ public class VenderDatabaseConfig {
 
     @Bean(name = "entityManagerVender")
     public EntityManager entityManager(@Qualifier("entityManagerFactoryVender") LocalContainerEntityManagerFactoryBean entityManagerFactoryVender) {
-        return this.entityManagerFactoryVender().getObject().createEntityManager();
+        return entityManagerFactoryVender.getObject().createEntityManager();
     }
 
     @Bean(name = "entityManagerFactoryVender")
+    @Qualifier("entityManagerFactoryVender")
     public LocalContainerEntityManagerFactoryBean entityManagerFactoryVender() {
         return entityManagerFactoryBuilder
                 .dataSource(venderDataSource)

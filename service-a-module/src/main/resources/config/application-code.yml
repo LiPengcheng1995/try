@@ -3,5 +3,5 @@ app:
     resultCodes:
       serviceACodes:
         401:
-          - code: 201
-          - message: service-A-message-201
+        - code: 201
+        - message: service-A-message-201

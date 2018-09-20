@@ -1,8 +1,8 @@
 spring:
   profiles:
     include:
-      - code
-      - swagger
+    - code
+    - swagger
     active: development
   datasource:
     url: jdbc:mysql://10.182.34.185:3306/test_database?useUnicode=true&characterEncoding=utf-8&useSSL=false

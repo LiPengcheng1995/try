@@ -3,5 +3,5 @@ app:
     resultCodes:
       serviceBCodes:
         401:
-          - code: 202
-          - message: service-B-message-202
+        - code: 202
+        - message: service-B-message-202

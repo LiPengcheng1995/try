@@ -15,8 +15,8 @@ public class AVLTree {
         }
     }
 
-    public boolean remove(int key) {
-        return false;
+    public void remove(int key) {
+        this.root = this.remove(key, this.root);
     }
 
     public void clear() {
@@ -72,13 +72,107 @@ public class AVLTree {
                 parent.setRight(insert(key, parent.getRight()));
             }
         }
-
+        updateDepth(parent);
         if (!ifBalance(parent)) {
             parent = balance(parent);
+            updateDepth(parent);
+
         }
         this.updateDepth(parent);
         return parent;
     }
+
+    private AVLNode remove(int key, AVLNode parent) {
+        if (Objects.isNull(parent)){
+            return null;
+        }
+        if (key < parent.getKey()){
+            parent.setLeft(remove(key,parent.getLeft()));
+        }else if (key > parent.getKey()){
+            parent.setRight(remove(key,parent.getRight()));
+        }else if (key == parent.getKey()) {
+            if (Objects.nonNull(parent.getRight())) {
+                int temp = getTheSmallestAVLNode(parent.getRight());
+                parent.setRight(removeTheSmallestAVLNode(parent.getRight()));
+                parent.setKey(temp);
+            } else if (Objects.nonNull(parent.getLeft())){
+                int temp =getTheLargestAVLNode(parent.getLeft());
+                parent.setLeft(removeTheLargestAVLNode(parent.getRight()));
+                parent.setKey(temp);
+            } else {
+                return null;
+            }
+        }
+        updateDepth(parent);
+        if (!ifBalance(parent)){
+            parent = balance(parent);
+            updateDepth(parent);
+        }
+        return parent;
+    }
+
+    private AVLNode removeTheSmallestAVLNode(AVLNode parent){
+        if (Objects.isNull(parent.getLeft())){
+            if (Objects.nonNull(parent.getRight())){
+                this.remove(parent.getKey());
+            }else{
+                //左右均空，是对应的叶子节点
+                return null;
+            }
+        }else{
+            parent.setLeft(removeTheSmallestAVLNode(parent.getLeft()));
+        }
+
+        updateDepth(parent);
+        if (!ifBalance(parent)){
+            parent = balance(parent);
+            updateDepth(parent);
+        }
+        return parent;
+    }
+    private int getTheSmallestAVLNode(AVLNode parent){
+        AVLNode temp = parent.getLeft();
+        if (Objects.isNull(temp)){
+            return parent.getKey();
+        }
+        while (Objects.nonNull(temp.getLeft())) {
+            temp = temp.getLeft();
+        }
+        return temp.getKey();
+    }
+    private AVLNode removeTheLargestAVLNode(AVLNode parent){
+        if (Objects.isNull(parent.getRight())){
+            if (Objects.nonNull(parent.getLeft())){
+                this.remove(parent.getKey());
+            }else{
+                //左右均空，是对应的叶子节点
+                return null;
+            }
+        }else{
+            parent.setRight(removeTheLargestAVLNode(parent.getRight()));
+        }
+
+        updateDepth(parent);
+        if (!ifBalance(parent)){
+            parent = balance(parent);
+            updateDepth(parent);
+        }
+        return parent;
+    }
+
+
+        private int getTheLargestAVLNode(AVLNode parent){
+        AVLNode temp = parent.getRight();
+        if (Objects.isNull(temp)){
+            return parent.getKey();
+        }
+        while(Objects.nonNull(temp.getRight())){
+            temp = temp.getRight();
+        }
+        return temp.getKey();
+    }
+
+
 
     private void updateDepth(AVLNode parent) {
         if (Objects.nonNull(parent.getLeft())) {

@@ -83,20 +83,20 @@ public class AVLTree {
     }
 
     private AVLNode remove(int key, AVLNode parent) {
-        if (Objects.isNull(parent)){
+        if (Objects.isNull(parent)) {
             return null;
         }
-        if (key < parent.getKey()){
-            parent.setLeft(remove(key,parent.getLeft()));
-        }else if (key > parent.getKey()){
-            parent.setRight(remove(key,parent.getRight()));
-        }else if (key == parent.getKey()) {
+        if (key < parent.getKey()) {
+            parent.setLeft(remove(key, parent.getLeft()));
+        } else if (key > parent.getKey()) {
+            parent.setRight(remove(key, parent.getRight()));
+        } else if (key == parent.getKey()) {
             if (Objects.nonNull(parent.getRight())) {
                 int temp = getTheSmallestAVLNode(parent.getRight());
                 parent.setRight(removeTheSmallestAVLNode(parent.getRight()));
                 parent.setKey(temp);
-            } else if (Objects.nonNull(parent.getLeft())){
-                int temp =getTheLargestAVLNode(parent.getLeft());
+            } else if (Objects.nonNull(parent.getLeft())) {
+                int temp = getTheLargestAVLNode(parent.getLeft());
                 parent.setLeft(removeTheLargestAVLNode(parent.getRight()));
                 parent.setKey(temp);
             } else {
@@ -104,35 +104,36 @@ public class AVLTree {
             }
         }
         updateDepth(parent);
-        if (!ifBalance(parent)){
+        if (!ifBalance(parent)) {
             parent = balance(parent);
             updateDepth(parent);
         }
         return parent;
     }
 
-    private AVLNode removeTheSmallestAVLNode(AVLNode parent){
-        if (Objects.isNull(parent.getLeft())){
-            if (Objects.nonNull(parent.getRight())){
+    private AVLNode removeTheSmallestAVLNode(AVLNode parent) {
+        if (Objects.isNull(parent.getLeft())) {
+            if (Objects.nonNull(parent.getRight())) {
                 this.remove(parent.getKey());
-            }else{
+            } else {
                 //左右均空，是对应的叶子节点
                 return null;
             }
-        }else{
+        } else {
             parent.setLeft(removeTheSmallestAVLNode(parent.getLeft()));
         }
 
         updateDepth(parent);
-        if (!ifBalance(parent)){
+        if (!ifBalance(parent)) {
             parent = balance(parent);
             updateDepth(parent);
         }
         return parent;
     }
-    private int getTheSmallestAVLNode(AVLNode parent){
+
+    private int getTheSmallestAVLNode(AVLNode parent) {
         AVLNode temp = parent.getLeft();
-        if (Objects.isNull(temp)){
+        if (Objects.isNull(temp)) {
             return parent.getKey();
         }
         while (Objects.nonNull(temp.getLeft())) {
@@ -140,20 +141,21 @@ public class AVLTree {
         }
         return temp.getKey();
     }
-    private AVLNode removeTheLargestAVLNode(AVLNode parent){
-        if (Objects.isNull(parent.getRight())){
-            if (Objects.nonNull(parent.getLeft())){
+
+    private AVLNode removeTheLargestAVLNode(AVLNode parent) {
+        if (Objects.isNull(parent.getRight())) {
+            if (Objects.nonNull(parent.getLeft())) {
                 this.remove(parent.getKey());
-            }else{
+            } else {
                 //左右均空，是对应的叶子节点
                 return null;
             }
-        }else{
+        } else {
             parent.setRight(removeTheLargestAVLNode(parent.getRight()));
         }
 
         updateDepth(parent);
-        if (!ifBalance(parent)){
+        if (!ifBalance(parent)) {
             parent = balance(parent);
             updateDepth(parent);
         }
@@ -161,17 +163,16 @@ public class AVLTree {
     }
 
 
-        private int getTheLargestAVLNode(AVLNode parent){
+    private int getTheLargestAVLNode(AVLNode parent) {
         AVLNode temp = parent.getRight();
-        if (Objects.isNull(temp)){
+        if (Objects.isNull(temp)) {
             return parent.getKey();
         }
-        while(Objects.nonNull(temp.getRight())){
+        while (Objects.nonNull(temp.getRight())) {
             temp = temp.getRight();
         }
         return temp.getKey();
     }
-
 
 
     private void updateDepth(AVLNode parent) {

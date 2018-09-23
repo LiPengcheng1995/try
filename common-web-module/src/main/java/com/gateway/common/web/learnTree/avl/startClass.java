@@ -1,4 +1,4 @@
-package com.gateway.common.web.learnTree;
+package com.gateway.common.web.learnTree.avl;
 
 import com.gateway.common.web.learnTree.avl.AVLTree;
 

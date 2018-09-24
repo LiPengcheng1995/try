@@ -23,7 +23,6 @@ public class startClass {
         System.out.println(dicarTree.showMiddle());
 
 
-
     }
 
 }

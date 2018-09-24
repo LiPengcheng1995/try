@@ -6,13 +6,24 @@ package com.gateway.common.web.learnTree.dicar;
  */
 public class InputNode implements Comparable<InputNode> {
 
+    private int id;
+
     private int key;
 
     private int value;
 
-    public InputNode(int key, int value) {
+    public InputNode(int id, int key, int value) {
+        this.id = id;
         this.key = key;
         this.value = value;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getKey() {
@@ -39,6 +50,10 @@ public class InputNode implements Comparable<InputNode> {
         if (this.key > o.key) {
             return 1;
         }
-            return 0;
+        return 0;
+    }
+
+    public String show() {
+        return "id = " + this.id + "   key = " + this.getKey() + "   value=" + this.getValue();
     }
 }

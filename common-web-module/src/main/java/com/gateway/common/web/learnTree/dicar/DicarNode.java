@@ -1,6 +1,9 @@
 package com.gateway.common.web.learnTree.dicar;
 
-public class DicarNode {
+public class DicarNode implements Comparable<DicarNode> {
+
+    private int id;
+
     private int key;
 
     private int value;
@@ -10,6 +13,20 @@ public class DicarNode {
     private DicarNode right;
 
     private DicarNode parent;
+
+    public DicarNode(InputNode inputNode) {
+        this.id = inputNode.getId();
+        this.key = inputNode.getKey();
+        this.value = inputNode.getValue();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getKey() {
         return key;
@@ -49,5 +66,16 @@ public class DicarNode {
 
     public void setParent(DicarNode parent) {
         this.parent = parent;
+    }
+
+    @Override
+    public int compareTo(DicarNode o) {
+        if (this.value < o.value) {
+            return -1;
+        }
+        if (this.value > o.value) {
+            return 1;
+        }
+        return 0;
     }
 }

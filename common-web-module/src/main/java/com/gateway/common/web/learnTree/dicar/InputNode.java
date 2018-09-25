@@ -12,6 +12,10 @@ public class InputNode implements Comparable<InputNode> {
 
     private int value;
 
+    public InputNode() {
+
+    }
+
     public InputNode(int id, int key, int value) {
         this.id = id;
         this.key = key;

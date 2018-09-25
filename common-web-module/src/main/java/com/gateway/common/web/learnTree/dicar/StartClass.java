@@ -3,7 +3,7 @@ package com.gateway.common.web.learnTree.dicar;
 import java.util.ArrayList;
 import java.util.List;
 
-public class startClass {
+public class StartClass {
 
     public static void main(String args[]) {
         List<InputNode> inputNodes = new ArrayList<>();

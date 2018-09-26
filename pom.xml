@@ -23,10 +23,6 @@
 
     <modules>
         <module>project-module</module>
-        <!--<module>common-module</module>-->
-        <module>service-a-module</module>
-        <module>service-b-module</module>
-        <module>common-web-module</module>
     </modules>
 
     <name>配置文件迁移demo</name>

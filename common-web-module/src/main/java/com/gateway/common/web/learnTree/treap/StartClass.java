@@ -4,12 +4,11 @@ import com.gateway.common.web.learnTree.dicar.InputNode;
 
 /**
  * @author lipengcheng3 Created date 2018-09-25 17:31
- * @description:Treap和笛卡尔树的一个重要区别是笛卡尔树的value的意义是存在的。
- * 而Treapd的value只是一个BBST，它的value只是引入了一个随机值来实现BBST的平衡
+ * @description:Treap和笛卡尔树的一个重要区别是笛卡尔树的value的意义是存在的。 而Treapd的value只是一个BBST，它的value只是引入了一个随机值来实现BBST的平衡
  */
 public class StartClass {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Treap treap = new Treap();
         treap.insert(new InputNode(1, 3, 7));
         treap.insert(new InputNode(2, 2, 5));

@@ -12,16 +12,16 @@ public class Treap {
 
     private TreapNode root;
 
-    public void insert(InputNode inputNode){
-        if (Objects.isNull(this.root)){
+    public void insert(InputNode inputNode) {
+        if (Objects.isNull(this.root)) {
             this.root = new TreapNode(inputNode);
-        }else{
-            this.root = this.insert(this.root,inputNode);
+        } else {
+            this.root = this.insert(this.root, inputNode);
         }
     }
 
-    public void delete(int key){
-
+    public void delete(int key) {
+        this.root = delete(root, key);
     }
 
     public String showBefore() {
@@ -33,43 +33,81 @@ public class Treap {
     }
 
 
-
-    private TreapNode insert(TreapNode parent,InputNode inputNode){
-        if (parent.compareTo(inputNode) < 0){
-            if (Objects.isNull(parent.getLeft())){
+    private TreapNode insert(TreapNode parent, InputNode inputNode) {
+        if (parent.compareTo(inputNode) < 0) {
+            if (Objects.isNull(parent.getLeft())) {
                 parent.setLeft(new TreapNode(inputNode));
-            }else{
-                parent.setLeft(this.insert(parent.getLeft(),inputNode));
+            } else {
+                parent.setLeft(this.insert(parent.getLeft(), inputNode));
             }
-            if (parent.getValue() < parent.getLeft().getValue()){
+            if (parent.getValue() < parent.getLeft().getValue()) {
                 parent = rotateRight(parent);
             }
-        } else{
+        } else {
             //假设没有重复值
-            if (Objects.isNull(parent.getRight())){
+            if (Objects.isNull(parent.getRight())) {
                 parent.setRight(new TreapNode(inputNode));
-            }else{
-                parent.setRight(this.insert(parent.getRight(),inputNode));
+            } else {
+                parent.setRight(this.insert(parent.getRight(), inputNode));
             }
-            if (parent.getValue() < parent.getRight().getValue()){
+            if (parent.getValue() < parent.getRight().getValue()) {
                 parent = rotateLeft(parent);
             }
         }
         return parent;
     }
 
-    private TreapNode rotateRight(TreapNode parent){
+    private TreapNode rotateRight(TreapNode parent) {
         TreapNode temp = parent.getLeft();
         parent.setLeft(temp.getRight());
         temp.setRight(parent);
         return temp;
     }
 
-    private TreapNode rotateLeft(TreapNode parent){
+    private TreapNode rotateLeft(TreapNode parent) {
         TreapNode temp = parent.getRight();
         parent.setRight(temp.getLeft());
         temp.setLeft(parent);
         return temp;
+    }
+
+    public TreapNode delete(TreapNode parent, int key) {
+        if (Objects.isNull(parent)) {
+            return null;
+        }
+        if (parent.getKey() == key) {
+            //删除此节点
+            if (Objects.isNull(parent.getLeft()) && Objects.isNull(parent.getRight())) {
+                //叶子节点直接删除
+                return null;
+            } else if (Objects.isNull(parent.getLeft()) && Objects.nonNull(parent.getRight())) {
+                return parent.getRight();
+            } else if (Objects.nonNull(parent.getLeft()) && Objects.isNull(parent.getRight())) {
+                return parent.getLeft();
+            } else {
+                // Objects.nonNull(parent.getLeft()) && Objects.nonNull(parent.getRight())
+                if (parent.getLeft().getValue() < parent.getRight().getValue()) {
+                    TreapNode temp = parent.getLeft();
+                    temp.setLeft(delete(parent.getLeft(), parent.getLeft().getKey()));
+                    temp.setRight(parent.getRight());
+                    return temp;
+                } else {
+                    TreapNode temp = parent.getRight();
+                    temp.setRight(delete(parent.getRight(), parent.getRight().getKey()));
+                    temp.setLeft(parent.getRight());
+                    return temp;
+                }
+            }
+
+        } else if (parent.getKey() < key) {
+            //从左子树删除
+            parent.setLeft(delete(parent.getLeft(), key));
+            //由于本身的插入就维护了堆的性质，从下边提上来的点一定满足当前点小于上边的点，不用再特殊平衡了
+        } else {
+            //从右子树删除
+            parent.setRight(delete(parent.getRight(), key));
+        }
+        return parent;
     }
 
 
@@ -95,4 +133,5 @@ public class Treap {
         }
         return result;
     }
+
 }

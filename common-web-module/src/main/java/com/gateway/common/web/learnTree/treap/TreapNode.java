@@ -8,12 +8,6 @@ import com.gateway.common.web.learnTree.dicar.InputNode;
  */
 public class TreapNode extends InputNode {
 
-    private int id;
-
-    private int key;
-
-    private int value;
-
     private TreapNode left;
 
     private TreapNode right;
@@ -23,30 +17,6 @@ public class TreapNode extends InputNode {
 
     public TreapNode(InputNode inputNode) {
         super(inputNode.getId(), inputNode.getKey(), inputNode.getValue());
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getKey() {
-        return key;
-    }
-
-    public void setKey(int key) {
-        this.key = key;
-    }
-
-    public int getValue() {
-        return value;
-    }
-
-    public void setValue(int value) {
-        this.value = value;
     }
 
     public TreapNode getLeft() {

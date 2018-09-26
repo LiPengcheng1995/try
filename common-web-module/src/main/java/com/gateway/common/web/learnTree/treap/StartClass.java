@@ -22,5 +22,13 @@ public class StartClass {
         treap.insert(new InputNode(9, 4, 9));
         treap.insert(new InputNode(10, 20, 10));
 
+        System.out.println(treap.showBefore());
+        System.out.println(treap.showMiddle());
+
+        treap.delete(4);
+
+        System.out.println(treap.showBefore());
+        System.out.println(treap.showMiddle());
+
     }
 }

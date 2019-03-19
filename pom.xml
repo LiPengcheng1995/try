@@ -24,6 +24,7 @@
     <modules>
         <module>project-module</module>
         <module>learn-fork-join</module>
+        <module>learn-jvm</module>
     </modules>
 
     <name>配置文件迁移demo</name>

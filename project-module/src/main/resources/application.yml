@@ -27,7 +27,7 @@ jsf:
         alias: balias
         timeOut: 5000
 mybatis:
-  type-aliases-package: com.gateway.project.domain
+  type-aliases-package: com.gateway.project.com.domain
 
 
 

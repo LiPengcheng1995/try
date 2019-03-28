@@ -28,6 +28,7 @@ public class Test {
 //
 //        System.out.println(str1 == "李四");
 //        System.out.println(str1.intern() == str1);
+//        System.out.println(str1.intern() == "李四");
 
 
         // 个人尝试

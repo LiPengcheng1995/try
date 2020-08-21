@@ -7,6 +7,7 @@ package com.gateway.project.controller;
 
 import com.gateway.a.config.ServiceACodes;
 import com.gateway.b.config.ServiceBCodes;
+import com.gateway.project.config.TestConfig;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.stereotype.Controller;
@@ -28,9 +29,12 @@ public class TestController {
     @Resource
     private ServiceBCodes serviceBCodes;
 
+    @Resource
+    private TestConfig testConfig;
+
     @ApiOperation("测试接口")
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     public String test() {
-        return "accept";
+        return testConfig.toString();
     }
 }

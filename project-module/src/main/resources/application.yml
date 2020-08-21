@@ -29,6 +29,22 @@ jsf:
 mybatis:
   type-aliases-package: com.gateway.project.com.domain
 
+hehe:
+  group:
+    ETC:
+      recharge:
+        appId: test_1_id
+        token: test_1_token
+      card:
+        appId: test_2_id
+        token: test_2_token
+    NET_BAR:
+      recharge:
+        appId:
+        token:
+      card:
+        appId:
+        token:
 
 
 

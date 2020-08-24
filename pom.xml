@@ -25,6 +25,7 @@
         <module>project-module</module>
         <module>learn-fork-join</module>
         <module>learn-jvm</module>
+        <module>check-map-size</module>
     </modules>
 
     <name>配置文件迁移demo</name>

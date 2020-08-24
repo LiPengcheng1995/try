@@ -6,15 +6,9 @@
 package com.gateway.project;
 
 
-import com.gateway.a.AConfig;
-import com.gateway.b.BConfig;
-import com.gateway.common.CommonConfig;
-import com.gateway.common.web.CommonWebConfiguration;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Import;
 
 @EnableAutoConfiguration
 @ComponentScan({
@@ -22,13 +16,13 @@ import org.springframework.context.annotation.Import;
         "com.gateway.project.config"
 }
 )
-@Import({
-        CommonConfig.class,
-        CommonWebConfiguration.class,
-        AConfig.class,
-        BConfig.class
-})
-@MapperScan("com.gateway.project.mapper")
+//@Import({
+//        CommonConfig.class,
+//        CommonWebConfiguration.class,
+//        AConfig.class,
+//        BConfig.class
+//})
+//@MapperScan("com.gateway.project.mapper")
 public class ApplicationStarter {
     public static void main(String[] args) throws Exception {
         SpringApplication.run(ApplicationStarter.class, args);

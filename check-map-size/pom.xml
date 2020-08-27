@@ -11,5 +11,11 @@
 
     <artifactId>check-map-size</artifactId>
 
-
+<dependencies>
+    <dependency>
+        <groupId>com.google.openlocationcode</groupId>
+        <artifactId>openlocationcode</artifactId>
+        <version>1.0.4</version>
+    </dependency>
+</dependencies>
 </project>

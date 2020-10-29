@@ -11,8 +11,10 @@ import com.google.openlocationcode.OpenLocationCode;
  */
 public class Main {
     public static void main(String[] args) {
-        Double latitude = 39.78955430602357;
-        Double longitude = 116.56518448803709;
+        // old 8P2P6R
+        // new 8P2P6R
+        Double latitude = 30.206192;
+        Double longitude = 114.832748;
         OpenLocationCode code = new OpenLocationCode(latitude,longitude,6);
         System.out.println(code.getCode());
     }

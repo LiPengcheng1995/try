@@ -7,9 +7,11 @@
  */
 public class LPC implements Cloneable{
 
+//    final String data;
     String data;
 
     public LPC() {
+//        this.data="a";
     }
 
     public LPC(String data) {

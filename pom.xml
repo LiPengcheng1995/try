@@ -29,6 +29,7 @@
         <module>learn-lock</module>
         <module>learn-canculate</module>
         <module>learn-new</module>
+        <module>random</module>
     </modules>
 
     <name>配置文件迁移demo</name>

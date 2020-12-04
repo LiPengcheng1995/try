@@ -23,7 +23,7 @@ public class FastSort extends AbstractSort {
         int nextSwapIndex = leftIndex + 1;
 
         for (int i = baseIndex + 1; i <= rightIndex; i++) {
-            if (needSwap(baseIndex, i)) {
+            if (smaller(baseIndex, i)) {
                 swap(nextSwapIndex, i);
                 nextSwapIndex++;
             }
@@ -40,15 +40,4 @@ public class FastSort extends AbstractSort {
         doSort(nextSwapIndex, rightIndex);
     }
 
-    private void swap(Integer leftIndex, Integer rightIndex) {
-        Integer temp = data.get(leftIndex);
-        data.set(leftIndex, data.get(rightIndex));
-        data.set(rightIndex, temp);
-    }
-
-    private boolean needSwap(Integer leftIndex, Integer rightIndex) {
-        Integer left = data.get(leftIndex);
-        Integer right = data.get(rightIndex);
-        return BIGGER ? right - left < 0 : right - left > 0;
-    }
 }

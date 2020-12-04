@@ -11,7 +11,6 @@ import java.util.List;
 public abstract class AbstractSort {
 
     public static final Integer ARRAY_SIZE = 10;
-    public static final boolean BIGGER = true;// 升序
 
     public List<Integer> data;
 
@@ -21,6 +20,25 @@ public abstract class AbstractSort {
             data.add((int) (Math.random() * 100));
         }
         this.data = data;
+    }
+
+    protected void swap(Integer leftIndex, Integer rightIndex) {
+        Integer temp = data.get(leftIndex);
+        data.set(leftIndex, data.get(rightIndex));
+        data.set(rightIndex, temp);
+    }
+
+    /**
+     * 右边比左边小
+     *
+     * @param leftIndex
+     * @param rightIndex
+     * @return
+     */
+    protected boolean smaller(Integer leftIndex, Integer rightIndex) {
+        Integer left = data.get(leftIndex);
+        Integer right = data.get(rightIndex);
+        return right - left < 0;
     }
 
     abstract void sort();

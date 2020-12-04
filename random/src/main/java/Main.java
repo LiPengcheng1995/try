@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         for (int t = 0; t < 5; t++) {
             System.out.println("=======开始一次计算");
-            AbstractSort sort = new FastSort();
+            AbstractSort sort = new HeapSort();
             System.out.println(sort.data);
             sort.sort();
             System.out.println(sort.data);

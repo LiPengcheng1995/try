@@ -30,6 +30,7 @@
         <module>learn-canculate</module>
         <module>learn-new</module>
         <module>random</module>
+        <module>plant-uml</module>
     </modules>
 
     <name>配置文件迁移demo</name>
